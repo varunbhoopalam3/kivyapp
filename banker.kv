@@ -1,0 +1,77 @@
+<BankerWidget>:
+    id: main_win
+    orientation: "vertical"
+    spacing: 5
+    padding: 5
+    BoxLayout:
+        size_hint_y: .1
+        TextInput:
+            id: openbal
+            size_hint_x: .4
+            hint_text: 'Bank Opening Bal'
+            input_type: 'number'
+        TextInput:
+            id: initialload
+            size_hint_x: .4
+            hint_text: 'Players initial load'
+            input_type: 'number'
+        Button:
+            id: start
+            size_hint_x: .2
+            text: 'Start'
+            on_release: root.StartGame()
+    BoxLayout:
+        size_hint_y: .1
+        TextInput:
+            id: player
+            hint_text: "Enter Players Name"
+            multiline: False
+            size_hint_x: .8
+        Button:
+            id: addplayerbtn
+            text: "Add"
+            size_hint_x: .2
+            disabled: True
+            on_release: root.AddPlayer()
+    BoxLayout:
+        size_hint_y: .1
+        Button:
+            id: splayerbtn
+            text: "Select the Player"
+            disabled: True
+            on_release: root.DropDown()
+        TextInput:
+            id: amount
+            hint_text: "Enter the Amount\nto CheckIn/CheckOut"
+            multiline: False
+            input_type: 'number'
+    BoxLayout:
+        size_hint_y: .1
+        Button:
+            id: checkoutbtn
+            text: "    Checkout\n(From the Bank)"
+            disabled: True
+            on_release: root.CheckOut()
+        Button:
+            id: checkinbtn
+            text: "    Checkin\n(Into the Bank)"
+            disabled: True
+            on_release: root.CheckIn()
+    BoxLayout:
+        size_hint_y: .5
+        TextInput:
+            id: score
+            readonly: True
+            text: "Score Board"
+            font_size: 30
+    BoxLayout:
+        size_hint_y: .1
+        Label:
+            text: 'Bank Balance:'
+        Label:
+            id: currentamt
+            text: '0'
+        Button:
+            id: endgame
+            text: "End Game"
+            on_release: root.EndGame()
